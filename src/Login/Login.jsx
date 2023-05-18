@@ -1,16 +1,42 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 
 const Login = () => {
 
+    const {user, SignIn, handleToaster} = useContext(AuthContext);
+    const [isUserIncluded, setIsUserIncluded] = useState(false);
+
     const handleLogIn = event => {
         event.preventDefault();
-        form.reset();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const loggedUser = { email, password };
-        console.log(loggedUser);
+        console.log(email, password);
+
+        SignIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    const handleLoginToaster = () => {
+        setIsUserIncluded(true);
+
+        if(isUserIncluded){
+            toast.success('Log in Successful');
+        }
+        else{
+            toast.error('Already Logged In')
+        }
     }
 
     return (
@@ -35,7 +61,8 @@ const Login = () => {
                         </label>
                         </div>
                         <div className="form-control mt-6">
-                        <input type="submit" className="btn btn-primary" value="Login"/>
+                        <input type="submit" onClick={handleLoginToaster} className="btn btn-primary" value="Login"/>
+                        <Toaster/>
                         </div>
                     <p>Do not have an account? <Link to="/signIn"><span>Create an Account</span></Link></p>
                 </form>

@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+    
     return (
         <div className="mx-24 my-12">
             <div className="navbar bg-base-100">

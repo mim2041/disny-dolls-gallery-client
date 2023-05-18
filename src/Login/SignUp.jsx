@@ -8,12 +8,9 @@ const SignUp = () => {
     const {user, createUser} = useContext(AuthContext);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
 
-    const notify = () => toast('User added Successfully');
-    const included = () => toast('User already added');
 
     const handleSignUp = event => {
         event.preventDefault();
-        // form.reset();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -25,6 +22,7 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                form.reset();
 
             }) 
             .catch(error => {
