@@ -4,7 +4,7 @@ import { BsWhatsapp, BsFacebook, BsTwitter, BsFillTelephoneFill } from "react-ic
 
 const Footer = () => {
     return (
-        <div className='bg-pink-200'>
+        <div className='bg-pink-200 my-12'>
             <footer className="footer p-10 text-base-content grid  sm:items-center md:grid-cols-4">
                 <div>
                     

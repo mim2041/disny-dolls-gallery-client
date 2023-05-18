@@ -10,7 +10,7 @@ const Banner = () => {
     const bannerText = 
     <div className="absolute h-full flex items-center text-white left-0 top-0 bg-gradient-to-r from-sky-300 rounded-xl">
         <div className='space-y-7 w-1/2 pl-12 '>
-            <h2 className='text-6xl font-bold '>Welcome to Our Disney Land With Fairy Tales</h2>
+            <h2 className='text-5xl font-bold title'>Welcome to <br /> Disney Land <br /> With Our Fairy Tales</h2>
             <p>We serve the way you like, the thing you want, the perfections you are looking for. You will lost in your childhood. Bring distance to your children from phone and get these to your children for their sweet memories.</p>
             <div className='flex'>
                 <button className="btn btn-primary mr-5">Discover More</button>
