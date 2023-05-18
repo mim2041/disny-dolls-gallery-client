@@ -1,10 +1,11 @@
 import logo from '../../assets/images/logo.jpg';
-import '../Navbar/Navbar.css'
+import '../Navbar/Navbar.css';
+import { BsWhatsapp, BsFacebook, BsTwitter, BsFillTelephoneFill } from "react-icons/bs";
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-base-200 text-base-content grid  sm:items-center md:grid-cols-4">
+        <div className='bg-pink-200'>
+            <footer className="footer p-10 text-base-content grid  sm:items-center md:grid-cols-4">
                 <div>
                     
                     <img src={logo} width="15%" className='rounded-lg' alt="" />
@@ -19,17 +20,18 @@ const Footer = () => {
                     <a className="link link-hover">Advertisement</a>
                 </div> 
                 <div>
-                    <span className="footer-title">Company</span> 
-                    <a className="link link-hover">About us</a> 
-                    <a className="link link-hover">Contact</a> 
-                    <a className="link link-hover">Jobs</a> 
-                    <a className="link link-hover">Press kit</a>
+                    <span className="footer-title">Contact Us</span> 
+                    <p className="flex gap-2 items-center link link-hover"><BsFillTelephoneFill/> +880 13453-56434</p>
+                    <p className="flex gap-2 items-center link link-hover"><BsWhatsapp/> +880 13453-56434</p>
+                    <p className="flex gap-2 items-center link link-hover"><BsTwitter/> Twitter</p>
+                    <p className="flex gap-2 items-center link link-hover"><BsFacebook/> FaceBook</p>
+                    
                 </div> 
                 <div>
-                    <span className="footer-title">Legal</span> 
-                    <a className="link link-hover">Terms of use</a> 
+                    <span className="footer-title">Copyright</span> 
+                    <a className="link link-hover">Copyright &copy; 2023</a> 
                     <a className="link link-hover">Privacy policy</a> 
-                    <a className="link link-hover">Cookie policy</a>
+                    <a className="link link-hover">All right reserved</a>
                 </div>
             </footer>
         </div>
