@@ -28,7 +28,7 @@ const Navbar = () => {
                         <li><a className="justify-between"> All Toys</a></li>
                         <li><a>My Toys</a></li>
                         <li><a>Add A Toy</a></li>
-                        <li><a>Blogs</a></li>
+                        <li><Link>Blog</Link></li>
                     </ul>
                     </div>
                     <div className="">
@@ -42,7 +42,7 @@ const Navbar = () => {
                         <li><a>All Toys</a></li>
                         <li><a>My Toys</a></li>
                         <li><a>Add A Toy</a></li>
-                        <li><a>Blogs</a></li>
+                        <li><Link to='/blog'>Blog</Link></li>
                         
                     </ul>
                 </div>
