@@ -2,12 +2,18 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import { BsGoogle, BsGithub } from "react-icons/bs";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
 const Login = () => {
 
-    const {user, SignIn, handleToaster} = useContext(AuthContext);
+    const { SignIn, socialLogIn } = useContext(AuthContext);
+
+    const [ setUser] = useState(null);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogIn = event => {
         event.preventDefault();
@@ -26,7 +32,23 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
             })
+
+        
     }
+
+    // Google Sign In
+    const googleSingIn = () => {
+        socialLogIn(googleProvider)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setUser(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+    
 
     const handleLoginToaster = () => {
         setIsUserIncluded(true);
@@ -43,7 +65,7 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
     
-                <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-pink-200 my-12">
                 <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
                         <label className="label">
@@ -66,6 +88,19 @@ const Login = () => {
                         </div>
                     <p>Do not have an account? <Link to="/signIn"><span>Create an Account</span></Link></p>
                 </form>
+                <div className="divider mx-12">OR</div>
+                <div onClick={googleSingIn} className="mx-12 mb-12">
+                    <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
+                        <BsGoogle/>
+                        <h2>Continue With Google</h2>
+                    </div>
+
+                    <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
+                        <BsGithub/>
+                        <h2>Continue With Github</h2>
+                    </div>
+                    
+                </div>
                 </div>
             </div>
         </div>

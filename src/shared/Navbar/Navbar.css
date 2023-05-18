@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Pacifico&family=Poppins:wght@500&family=Roboto+Mono:ital,wght@1,300&display=swap');
+
+.userImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.title{
+    font-family: 'Lobster', sans-serif;
+    font-size: 24px;
+
+}

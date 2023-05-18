@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import './Navbar.css';
+import logo from '../../assets/images/logo.jpg'
 
 
 const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext);
-    
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {})
+        .catch(error => console.log(error));
+    }
+
     return (
         <div className="mx-24 my-12">
             <div className="navbar bg-base-100">
@@ -23,7 +31,10 @@ const Navbar = () => {
                         <li><a>Blogs</a></li>
                     </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <div className="">
+                        <img src={logo} width="10%" className='rounded-lg ml-5' alt="" />
+                        <h2 className="title text-pink-500">Fairy Tales</h2>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -32,11 +43,20 @@ const Navbar = () => {
                         <li><a>My Toys</a></li>
                         <li><a>Add A Toy</a></li>
                         <li><a>Blogs</a></li>
-                        <li><Link to="/login">Login</Link></li>
+                        
                     </ul>
                 </div>
                 <div>
-                    <button className="btn">get started</button>
+                    {
+                        user ?
+                        <>
+                        <img title={user.displayName ? user.displayName : null} className="userImg" src={user.photoURL ? user.photoURL : null} />
+                        <button  className='btn btn-primary' onClick={handleLogOut}>LogOut</button>
+                        </>
+                        :
+                        <Link to="/login"><button className="btn">Login</button></Link>
+                    }
+                    
                 </div>
             </div>
         </div>

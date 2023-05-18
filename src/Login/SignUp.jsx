@@ -5,8 +5,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
 
-    const {user, createUser} = useContext(AuthContext);
+    const { createUser} = useContext(AuthContext);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
+    const [error, setError] = useState('');
 
 
     const handleSignUp = event => {
@@ -17,6 +18,16 @@ const SignUp = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         console.log(name, email, password, photo);
+
+        if(email === '' || password === ''){
+            setError('Cannot submit empty email and password fields')
+            return;
+        }
+
+        else if(password.length < 6){
+            setError('The password is less than 6 characters')
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
@@ -73,11 +84,14 @@ const SignUp = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         </div>
+
                         <div className="form-control mt-6">
                         <input type="submit" onClick={handleToaster} className="btn btn-primary" value="Sign Up" />
                         </div>
                         <Toaster/>
                     <p>Already have an account? <Link to="/login"><span>Login</span></Link></p>
+
+                    <p className="text-danger">{error}</p>
                 </form>
                 </div>
             </div>
