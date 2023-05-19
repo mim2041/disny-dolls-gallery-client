@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { BsGoogle, BsGithub } from "react-icons/bs";
@@ -9,8 +9,13 @@ import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
 
     const { SignIn, socialLogIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location);
 
-    const [ setUser] = useState(null);
+    const from = location.state?.from?.pathname || '/';
+
+    const [ user, setUser] = useState(null);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
 
     const googleProvider = new GoogleAuthProvider();
@@ -27,7 +32,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
-
+                navigate(from, {replace : true})
             })
             .catch(error => {
                 console.log(error)
@@ -43,6 +48,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             setUser(loggedUser);
+            navigate(from, {replace: true});
         })
         .catch(error => {
             console.log(error);
