@@ -16,7 +16,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="px-12 py-12 mb-12 bg-pink-200">
+        <div className="navbar-container px-12 py-12 mb-12 bg-pink-200">
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -40,8 +40,12 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to="/allToys">All Toys</Link></li>
-                        <li><Link to="/myToys">My Toys</Link></li>
-                        <li><Link to="/addToys">Add A Toy</Link></li>
+                        {
+                            user? <><li><Link to="/myToys">My Toys</Link></li>
+                            <li><Link to="/addToys">Add A Toy</Link></li>
+                            </> : ''
+                        }
+                        
                         <li><Link to="/blog">Blog</Link></li>
                         
                     </ul>
