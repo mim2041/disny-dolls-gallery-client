@@ -13,7 +13,7 @@ const ToysTable = ({toy}) => {
                 <td>{subcategory}</td>
                 <td>${price}</td>
                 <td>{quantity}</td>
-                <td><Link to={`details/${_id}`}><button className="btn btn-primary">View Details</button></Link></td>
+                <td><Link to={`/details/${_id}`}><button className="btn btn-primary">View Details</button></Link></td>
             </tr>
         </tbody>
     );
