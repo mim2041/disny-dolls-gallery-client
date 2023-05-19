@@ -1,6 +1,11 @@
 // import { AiFillStar } from "react-icons/ai";
 
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 const AddToys = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user)
 
     const handleAddToys = event => {
         event.preventDefault();
@@ -87,7 +92,7 @@ const AddToys = () => {
                             <span className="label-text font-bold">Seller Name</span>
                         </label>
                         <label className="w-full">
-                            <input type="text" placeholder="Enter Seller Name" name="seller" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={user.displayName} name="seller" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control mb-8 w-1/2">
@@ -95,7 +100,7 @@ const AddToys = () => {
                             <span className="label-text font-bold">Seller Email</span>
                         </label>
                         <label className="w-full">
-                            <input type="email" placeholder="Enter Seller Email" name="email" className="input input-bordered w-full" />
+                            <input type="email" placeholder="Enter Seller Email" defaultValue={user.email} name="email" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
