@@ -1,23 +1,25 @@
 import {  useLoaderData } from "react-router-dom";
 import ToysTable from "./ToysTable";
+import { useState } from "react";
 
 
 const AllToys = () => {
     const allToys = useLoaderData();
+    const [toys, setToys] = useState(allToys);
 
     const handleSearch = () => {
         const search = document.getElementById('search').value;
         console.log(search);
 
-        const toy = allToys.filter(toys => search === toys.name)
+        const toys = allToys.filter(toy => search.toLower() === toy.name.toLower())
 
-        console.log(toy)
-        if(toy){
-            return <>
-                <p>{toy.name}</p>
-            </>
+        console.log(toys,"search result");
+        if(toys.length===0){
+            setToys(null);
         }
-            
+        else{
+            setToys(toys);
+        }
         
     }
 
@@ -34,10 +36,11 @@ const AllToys = () => {
                     </div>
                 </div>
                 </div>
-            <table className="table w-full">
+            {toys ? <table className="table w-full">
                 {/* head */}
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Toy Name</th>
                         <th>Supplier Name</th>
                         <th>Sub-Category</th>
@@ -47,7 +50,7 @@ const AllToys = () => {
                     </tr>
                 </thead>
                     {
-                        allToys.map(toy => <ToysTable
+                        toys.map(toy => <ToysTable
                             key={toy._id}
                             toy={toy}
                         ></ToysTable>
@@ -55,7 +58,8 @@ const AllToys = () => {
                     }
                 
                 
-            </table>
+            </table> :
+            <p className="text-center text-3xl text-red-700">Sorry!!! The Toy is not Available.</p>}
         </div>
     );
 };

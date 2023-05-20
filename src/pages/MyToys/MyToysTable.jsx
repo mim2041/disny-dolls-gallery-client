@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { BiEdit } from "react-icons/bi";
+import { AiOutlineDelete } from "react-icons/ai";
 
-
-const ToysTable = ({toy}) => {
-    const {_id, name, photo, price, quantity, seller, subcategory} = toy;
-
+const MyToysTable = ({toys}) => {
+    const {name, photo, price, rating, seller, email, quantity, subcategory, description} = toys;
+    
+    
     return (
-        <tbody>
+            <tbody>
             {/* row 1 */}
             <tr>
             <td>
@@ -23,10 +24,15 @@ const ToysTable = ({toy}) => {
                 <td>{subcategory}</td>
                 <td>${price}</td>
                 <td>{quantity}</td>
-                <td><Link to={`/details/${_id}`}><button className="btn btn-primary">View Details</button></Link></td>
+                <td>
+                    <div className="flex gap-8 text-2xl">
+                        <button><BiEdit/></button>
+                        <AiOutlineDelete/>
+                    </div>
+                </td>
             </tr>
         </tbody>
     );
 };
 
-export default ToysTable;
+export default MyToysTable;
