@@ -1,8 +1,9 @@
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const MyToysTable = ({toys}) => {
-    const {name, photo, price, rating, seller, email, quantity, subcategory, description} = toys;
+const MyToysTable = ({toys, handleDelete}) => {
+    const {_id, name, photo, price, seller, email, quantity, subcategory, description} = toys;
+    
     
     
     return (
@@ -27,7 +28,7 @@ const MyToysTable = ({toys}) => {
                 <td>
                     <div className="flex gap-8 text-2xl">
                         <button><BiEdit/></button>
-                        <button><AiOutlineDelete/></button>
+                        <button onClick={() => handleDelete(_id)}><AiOutlineDelete/></button>
                     </div>
                 </td>
             </tr>
