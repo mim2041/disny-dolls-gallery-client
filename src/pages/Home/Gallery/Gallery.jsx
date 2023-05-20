@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import './Gallery.css';
 
+import 'aos/dist/aos.css';
+import Aos from "aos";
+
 const Gallery = () => {
+
     const [images, setImages] = useState([]);
 
     useEffect(() => {
@@ -10,7 +14,12 @@ const Gallery = () => {
             .then(data => {
                 setImages(data)
             })
-    } ,[])
+    } ,[]);
+
+    // AOS package
+    useEffect(() => {
+        Aos.init();
+    }, [])
 
     return (
         <div className="bg-pink-100 my-12 p-12 text-center">
@@ -19,7 +28,7 @@ const Gallery = () => {
 
             <div className="mt-12 mx-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {
-                    images.map(image => <img
+                    images.map(image => <img  data-aos="zoom-in" 
                         key={image._id}
                     src={image.picture} className="w-72 h-72 gallery"/>)
                 }
