@@ -1,8 +1,9 @@
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-const MyToysTable = ({toys, handleDelete}) => {
-    const {_id, name, photo, price, seller, email, quantity, subcategory, description} = toys;
+const MyToysTable = ({toys, handleDelete }) => {
+    const {_id, name, photo, price, seller, quantity, subcategory} = toys;
     
     
     
@@ -27,7 +28,7 @@ const MyToysTable = ({toys, handleDelete}) => {
                 <td>{quantity}</td>
                 <td>
                     <div className="flex gap-8 text-2xl">
-                        <button><BiEdit/></button>
+                        <Link to={`/update/${_id}`}><button><BiEdit/></button></Link>
                         <button onClick={() => handleDelete(_id)}><AiOutlineDelete/></button>
                     </div>
                 </td>

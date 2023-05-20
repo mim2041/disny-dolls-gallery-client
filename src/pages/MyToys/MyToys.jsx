@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../provider/AuthProvider";
 import MyToysTable from "./MyToysTable";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -11,7 +11,7 @@ const MyToys = () => {
     // console.log(user.email)
 
     const [myToys, setMyToys] = useState([]);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/mytoys/${user.email}`)
@@ -21,6 +21,8 @@ const MyToys = () => {
                 setMyToys(data);
             })
     }, [user.email]);
+
+    
 
     const handleDelete = id => {
         console.log(id)
