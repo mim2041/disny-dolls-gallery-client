@@ -1,4 +1,5 @@
 // import { AiFillStar } from "react-icons/ai";
+import Swal from 'sweetalert2'
 
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -32,9 +33,20 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 form.reset();
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Do you want to continue',
+                        icon: 'success',
+                        confirmButtonText: 'Yes'
+                      })
+                }
             })
+        
+        
+        
     }
 
     return (

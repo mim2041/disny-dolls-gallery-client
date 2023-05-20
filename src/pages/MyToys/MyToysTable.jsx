@@ -27,7 +27,7 @@ const MyToysTable = ({toys}) => {
                 <td>
                     <div className="flex gap-8 text-2xl">
                         <button><BiEdit/></button>
-                        <AiOutlineDelete/>
+                        <button><AiOutlineDelete/></button>
                     </div>
                 </td>
             </tr>
