@@ -1,9 +1,11 @@
+import useTitle from '../../Hooks/UseTitle';
 import q1 from '../../assets/images/blog/Q1.png';
 import q2 from '../../assets/images/blog/Q2.png';
 import q3 from '../../assets/images/blog/Q3.png';
 import q4 from '../../assets/images/blog/Q4.png';
 
 const Blog = () => {
+    useTitle("Blog")
     return (
         <div className='bg-pink-50 text-justify'>
             <div className='mx-8 lg:mx-24 py-12'>

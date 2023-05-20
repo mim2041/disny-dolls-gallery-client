@@ -4,9 +4,11 @@ import { AuthContext } from "../../provider/AuthProvider";
 import MyToysTable from "./MyToysTable";
 // import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../Hooks/UseTitle";
 
 
 const MyToys = () => {
+    useTitle("My Toys")
     const {user} = useContext(AuthContext);
     // console.log(user.email)
 

@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from "../Hooks/UseTitle";
 
 const SignUp = () => {
+    useTitle("SignUp")
 
     const { createUser} = useContext(AuthContext);
     const [isUserIncluded, setIsUserIncluded] = useState(false);

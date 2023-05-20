@@ -1,11 +1,10 @@
+import { useEffect } from "react";
 
 
-const UseTitle = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const useTitle = (title) => {
+    useEffect(() => {
+        document.title = `Fairy Tales | ${title}`;
+    }, [title])
 };
 
-export default UseTitle;
+export default useTitle;

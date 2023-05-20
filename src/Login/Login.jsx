@@ -6,9 +6,11 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { BsGoogle, BsGithub } from "react-icons/bs";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../Hooks/UseTitle";
 
 
 const Login = () => {
+    useTitle("Login");
 
     const { SignIn, socialLogIn } = useContext(AuthContext);
     const navigate = useNavigate();
