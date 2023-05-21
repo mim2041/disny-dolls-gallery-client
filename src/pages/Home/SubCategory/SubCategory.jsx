@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SubCategoryCard from './SubCategoryCard';
+
 const SubCategory = () => {
     const [subcategories,setSubcategories]=useState([])
     // const [tabIndex,setTabIndex]=useState(0);
-    const [allToys,setAllToys]=useState([])
+    const [allToys,setAllToys]=useState([]);
+
+
     useEffect(()=>{
-        fetch('http://localhost:5000/subcategory')
+        fetch('https://disney-dolls-gallery-server.vercel.app/subcategory')
         .then(res=>res.json())
         .then(data=>setSubcategories(data))
     },[])
@@ -15,7 +18,7 @@ const SubCategory = () => {
     
 
     useEffect(()=>{
-        fetch('http://localhost:5000/toys')
+        fetch('https://disney-dolls-gallery-server.vercel.app/toys')
         .then(res=>res.json())
         .then(data=>setAllToys(data))
     },[])

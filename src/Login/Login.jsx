@@ -118,14 +118,14 @@ const Login = () => {
                     <p className="text-error">{error}</p>
                 </form>
                 <div className="divider mx-12">OR</div>
-                <div onClick={googleSingIn} className="mx-12 mb-12">
-                    <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
-                        <BsGoogle/>
-                        <h2>Continue With Google</h2>
+                <div className="mx-12 mb-12">
+                    <div onClick={googleSingIn} cursor="pointer" className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
+                        <BsGoogle cursor="pointer"/>
+                        <h2 cursor="pointer">Continue With Google</h2>
                     </div>
 
                     <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
-                        <BsGithub/>
+                        <BsGithub cursor="pointer"/>
                         <h2>Continue With Github</h2>
                     </div>
                     

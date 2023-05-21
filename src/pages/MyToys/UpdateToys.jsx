@@ -21,7 +21,7 @@ const UpdateToys = () => {
         console.log(updatedToy);
 
 
-        fetch(`http://localhost:5000/toys/${myToy._id}`, {
+        fetch(`https://disney-dolls-gallery-server.vercel.app/toys/${myToy._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

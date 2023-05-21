@@ -29,12 +29,12 @@ const router = createBrowserRouter([
         {
           path: '/allToys',
           element: <AllToys></AllToys>,
-          loader: ()=> fetch('http://localhost:5000/toys')
+          loader: ()=> fetch('https://disney-dolls-gallery-server.vercel.app/toys')
         },
         {
           path: '/details/:id',
           element: <PrivateRoute><Details></Details></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+          loader: ({params}) => fetch(`https://disney-dolls-gallery-server.vercel.app/toys/${params.id}`)
         },
         {
           path: "/myToys",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         {
           path: '/update/:id',
           element: <PrivateRoute><UpdateToys></UpdateToys></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+          loader: ({params}) => fetch(`https://disney-dolls-gallery-server.vercel.app/toys/${params.id}`)
         },
         {
           path: "/addToys",

@@ -6,7 +6,10 @@ import MyToysTable from "./MyToysTable";
 import Swal from "sweetalert2";
 
 import { BsSortDown , BsSortUp} from "react-icons/bs";
+import useTitle from "../../Hooks/UseTitle";
 const MyToys = () => {
+
+    useTitle("My Toys");
     const {user} = useContext(AuthContext);
     // console.log(user.email)
 
@@ -15,7 +18,7 @@ const MyToys = () => {
     // const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mytoys/${user.email}`)
+        fetch(`https://disney-dolls-gallery-server.vercel.app/mytoys/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -28,7 +31,7 @@ const MyToys = () => {
 
         console.log(value)
         // setSortValue(value);
-        fetch(`http://localhost:5000/sortmytoys?email=${user.email}&sortValue=${value}`)
+        fetch(`https://disney-dolls-gallery-server.vercel.app/sortmytoys?email=${user.email}&sortValue=${value}`)
             .then(res => res.json())
             .then(data => {
                 setMyToys(data);
@@ -49,7 +52,7 @@ const MyToys = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://disney-dolls-gallery-server.vercel.app/toys/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
