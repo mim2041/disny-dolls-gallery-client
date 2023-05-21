@@ -26,7 +26,7 @@ const AddToys = () => {
         const newToy = {name, photo, price, rating, seller, email, quantity, subcategory, description};
         console.log(newToy);
 
-        fetch('https://disney-dolls-gallery-server.vercel.app/toys',{
+        fetch('http://localhost:5000/toys',{
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -55,8 +55,8 @@ const AddToys = () => {
             <div className="mt-4 bg-pink-200 p-24">
             <h2 className="text-4xl text-pink-600 text-center font-bold mb-8 title">Add A Toy</h2>
             <form onSubmit={handleAddToys}>
-                <div className="flex gap-8">
-                    <div className="form-control w-1/2 mb-8">
+                <div className="lg:flex gap-8">
+                    <div className="form-control lg:w-1/2 mb-8">
                         <label className="label">
                             <span className="label-text font-bold">Doll Name</span>
                         </label>
@@ -64,7 +64,7 @@ const AddToys = () => {
                             <input type="text" placeholder="Enter Doll Name" name="name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control mb-8 w-1/2">
+                    <div className="form-control mb-8 lg:w-1/2">
                         <label className="label">
                             <span className="label-text font-bold">Photo URL</span>
                         </label>
@@ -74,8 +74,8 @@ const AddToys = () => {
                     </div>
                 </div>
                 
-                <div className="flex gap-8">
-                    <div className="form-control w-1/2 mb-8">
+                <div className="lg:flex gap-8">
+                    <div className="form-control lg:w-1/2 mb-8">
                         <label className="label">
                             <span className="label-text font-bold">Price</span>
                         </label>
@@ -83,7 +83,7 @@ const AddToys = () => {
                             <input type="text" placeholder="Enter Doll Price" name="price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control mb-8 w-1/2 rounded-lg">
+                    <div className="form-control mb-8 lg:w-1/2 rounded-lg">
                     <label className="label">
                         <span className="label-text font-bold">Rating</span>
                     </label>
@@ -99,8 +99,8 @@ const AddToys = () => {
                 </div>
                 </div>
                 
-                <div className="flex gap-8">
-                    <div className="form-control w-1/2 mb-8">
+                <div className="lg:flex gap-8">
+                    <div className="form-control lg:w-1/2 mb-8">
                         <label className="label">
                             <span className="label-text font-bold">Seller Name</span>
                         </label>
@@ -108,7 +108,7 @@ const AddToys = () => {
                             <input type="text" defaultValue={user.displayName} name="seller" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control mb-8 w-1/2">
+                    <div className="form-control mb-8 lg:w-1/2">
                         <label className="label">
                             <span className="label-text font-bold">Seller Email</span>
                         </label>

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 import useTitle from "../Hooks/UseTitle";
@@ -8,11 +8,11 @@ import useTitle from "../Hooks/UseTitle";
 const SignUp = () => {
     useTitle("SignUp")
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser ,updateUserProfile} = useContext(AuthContext);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
     const [error, setError] = useState('');
 
-
+const navigate=useNavigate()
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -37,26 +37,30 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                handleUpdateUserProfile(name, photo);
                 form.reset();
-
+                toast.success("Successfully create a new account")
+                navigate('/')
             }) 
             .catch(error => {
-                console.log(error)
+                setError(error.message)
+                toast.error(error.message)
             })
     }
 
     
 
-    const handleToaster = () => {
-        setIsUserIncluded(true);
-
-        if(isUserIncluded){
-            toast.success('User Added Successfully');
+    const handleUpdateUserProfile = (name,photoURL) => {
+        const profile = {
+          displayName: name,
+          photoURL: photoURL
         }
-        else{
-            toast.error('User already added')
-        }
-    }
+        updateUserProfile(profile)
+          .then(() => {
+            
+          })
+          .catch((error) => console.error(error));
+      };
 
     return (
         <div>
@@ -92,12 +96,12 @@ const SignUp = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                        <input type="submit" onClick={handleToaster} className="btn btn-primary" value="Sign Up" />
+                        <input type="submit"  className="btn btn-primary" value="Sign Up" />
                         </div>
-                        <Toaster/>
+                        
                     <p>Already have an account? <Link to="/login"><span>Login</span></Link></p>
 
-                    <p className="text-danger">{error}</p>
+                    <p className="text-[red]">{error}</p>
                 </form>
                 </div>
             </div>

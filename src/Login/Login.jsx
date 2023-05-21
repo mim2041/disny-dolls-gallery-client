@@ -41,9 +41,10 @@ const Login = () => {
                 console.log(loggedUser);
                 form.reset();
                 navigate(from, {replace : true})
+                toast.success('Log in Successful');
             })
             .catch(error => {
-                console.log(error)
+                toast.error(error.message)
             })
 
         
@@ -57,9 +58,10 @@ const Login = () => {
             console.log(loggedUser);
             setUser(loggedUser);
             navigate(from, {replace: true});
+            toast.success('Log in Successful');
         })
         .catch(error => {
-            console.log(error);
+            toast.error(error.message)
         })
     }
     
@@ -78,16 +80,16 @@ const Login = () => {
         .catch(error => setError(error.message))
     }
 
-    const handleLoginToaster = () => {
-        setIsUserIncluded(true);
+    // const handleLoginToaster = () => {
+    //     setIsUserIncluded(true);
 
-        if(isUserIncluded){
-            toast.success('Log in Successful');
-        }
-        else{
-            toast.error('Already Logged In')
-        }
-    }
+    //     if(isUserIncluded){
+    //         toast.success('Log in Successful');
+    //     }
+    //     else{
+    //         toast.error('Already Logged In')
+    //     }
+    // }
 
     return (
         <div>
@@ -111,21 +113,21 @@ const Login = () => {
                         </label>
                         </div>
                         <div className="form-control mt-6">
-                        <input type="submit" onClick={handleLoginToaster} className="btn btn-primary" value="Login"/>
+                        <input type="submit" className="btn btn-primary" value="Login"/>
                         <Toaster/>
                         </div>
                     <p>Do not have an account? <Link to="/signIn"><span>Create an Account</span></Link></p>
                     <p className="text-error">{error}</p>
                 </form>
                 <div className="divider mx-12">OR</div>
-                <div className="mx-12 mb-12">
-                    <div onClick={googleSingIn} cursor="pointer" className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
-                        <BsGoogle cursor="pointer"/>
-                        <h2 cursor="pointer">Continue With Google</h2>
+                <div onClick={googleSingIn} className="mx-12 mb-12">
+                    <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
+                        <BsGoogle/>
+                        <h2>Continue With Google</h2>
                     </div>
 
                     <div className="text-2xl my-4 bg-white py-6 px-12 rounded-lg  text-green-700 text-center flex  justify-center items-center gap-4">
-                        <BsGithub cursor="pointer"/>
+                        <BsGithub/>
                         <h2>Continue With Github</h2>
                     </div>
                     
