@@ -2,7 +2,7 @@ import Aos from "aos";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { Toaster, toast } from "react-hot-toast";
+// import { Toaster, toast } from "react-hot-toast";
 
 
 const SubCategoryCard = (toy) => {

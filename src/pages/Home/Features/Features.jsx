@@ -9,9 +9,9 @@ const Features = () => {
     return (
         <div className="bg-pink-200 px-12 lg:px-24 py-12 text-center mt-12">
             <h1 className="title text-5xl mb-6 text-pink-600 text-center">These Are Our Features</h1>
-            <p className="lg: w-3/4 mx-auto">A toy website can help children develop in several ways. a well-designed toy website can provide a range of toys and resources that cater to different aspects of child development. It can serve as a valuable tool for parents, caregivers, and children to explore, learn, and engage in play that supports their growth and learning.</p>
+            <p className="lg:w-3/4 mx-auto">A toy website can help children develop in several ways. a well-designed toy website can provide a range of toys and resources that cater to different aspects of child development. It can serve as a valuable tool for parents, caregivers, and children to explore, learn, and engage in play that supports their growth and learning.</p>
 
-            <div className='mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6'>
+            <div className='mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 items-center'>
                 <div className='bg-blue-200 shadow-xl rounded-lg w-[200px] border-[2px, solid, black]'>
                     <img className='w-[200px] h-[150px] rounded-lg' src={feature1} alt="" />
                     <div className='p-2'>
@@ -53,7 +53,7 @@ const Features = () => {
                     <img className='w-[200px] h-[150px] rounded-lg' src={feature6} alt="" />
                     <div className='p-2'>
                     <h1 className='title text-pink-600'>Parental Involvement</h1>
-                    <p>Toy websites can encourage parental involvement by providing guidance on toy selection, age-appropriate toys, and playtime ideas. We offer insights into how parents can actively participate in their child's learning and development.</p>
+                    <p>Toy websites can encourage parental involvement by providing guidance on toy selection, age-appropriate toys, and playtime ideas. We offer insights into how parents can actively participate in their childs learning and development.</p>
                     </div>
                 </div>
                 

@@ -26,11 +26,11 @@ const Gallery = () => {
             <h1 className="title text-pink-600 mb-6 text-5xl">Visit Our Gallery</h1>
             <p>Our gallery is enriched with a lot of fairy toys. Look at our gallery section for a glimpse of our features. </p>
 
-            <div className="mt-12 mx-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="mt-12 lg:mx-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {
                     images.map(image => <img  data-aos="zoom-in" 
                         key={image._id}
-                    src={image.picture} className="w-72 h-72 gallery"/>)
+                    src={image.picture} className="w-72 h-72 sm:w-[300px] sm:h-[400px] gallery"/>)
                 }
             </div>
         </div>

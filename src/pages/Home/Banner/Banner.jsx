@@ -9,9 +9,9 @@ const Banner = () => {
 
     const bannerText = 
     <div className="absolute h-full flex items-center text-white left-0 top-0 bg-gradient-to-r from-sky-300 rounded-xl">
-        <div className='space-y-7 w-1/2 pl-12 '>
-            <h2 className='text-5xl font-bold title'>Welcome to <br /> Disney Land <br /> With Our Fairy Tales</h2>
-            <p>We serve the way you like, the thing you want, the perfections you are looking for. You will lost in your childhood. Bring distance to your children from phone and get these to your children for their sweet memories.</p>
+        <div className='space-y-7  lg:w-1/2 pl-12 '>
+            <h2 className='text-2xl lg:text-5xl font-bold title'>Welcome to <br /> Disney Land <br /> With Our Fairy Tales</h2>
+            <p className=''>We serve the way you like, the thing you want, the perfections you are looking for. You will lost in your childhood. Bring distance to your children from phone and get these to your children for their sweet memories.</p>
             <div className='flex'>
                 <button className="btn btn-primary mr-5">Discover More</button>
                 <button className="btn btn-outline btn-secondary">Latest Dolls</button>
@@ -21,7 +21,7 @@ const Banner = () => {
     </div>
 
     return (
-        <div className="carousel w-full h-[600px] my-12">
+        <div className="carousel w-full lg:h-[600px] my-12">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={banner1} className="w-full rounded-xl" />
                 {bannerText}

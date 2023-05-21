@@ -16,12 +16,12 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar-container px-12 py-12 mb-12 bg-pink-200">
-            <div className="navbar">
-                <div className="navbar-start">
+        <div className="navbar-container lg:px-12 py-12 mb-12 bg-pink-200">
+            <div className="navbar ">
+                <div className="navbar-start  ">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10  text-[#00ff26]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
@@ -31,8 +31,8 @@ const Navbar = () => {
                         <li><Link to="/blog">Blog</Link></li>
                     </ul>
                     </div>
-                    <div className="">
-                        <img src={logo} width="10%" className='rounded-lg ml-5' alt="" />
+                    <div className="flex justify-center items-center lg:flex-col">
+                        <img src={logo}  className='w-14 h-14 lg:w-24 rounded-lg ' alt="" />
                         <h2 className="title text-pink-500 text-2xl mt-2">Fairy Tales</h2>
                     </div>
                 </div>
