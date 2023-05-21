@@ -4,16 +4,14 @@ import { AuthContext } from "../../provider/AuthProvider";
 import MyToysTable from "./MyToysTable";
 // import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useTitle from "../../Hooks/UseTitle";
 
-
+import { BsSortDown , BsSortUp} from "react-icons/bs";
 const MyToys = () => {
-    useTitle("My Toys")
     const {user} = useContext(AuthContext);
     // console.log(user.email)
 
     const [myToys, setMyToys] = useState([]);
-    const [isAssending, setIsAssending] = useState(false);
+    const [sortValue,setSortValue]=useState(1)
     // const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +24,17 @@ const MyToys = () => {
     }, [user.email]);
 
     
+    const handleSort = (value)=>{
+
+        console.log(value)
+        // setSortValue(value);
+        fetch(`http://localhost:5000/sortmytoys?email=${user.email}&sortValue=${value}`)
+            .then(res => res.json())
+            .then(data => {
+                setMyToys(data);
+                setSortValue(value);
+            })
+    }
 
     const handleDelete = id => {
         console.log(id)
@@ -64,6 +73,16 @@ const MyToys = () => {
 
     return (
         <div>
+            <div className="flex w-96 mx-auto mb-12">
+            {
+                sortValue === 1 && <button onClick={()=>handleSort(-1)} className="btn btn-sm">Descending Sort<BsSortDown className="text-2xl mx-2"></BsSortDown></button>
+                
+            }
+            {
+                sortValue === -1 && <button onClick={()=>handleSort(1)} className="btn btn-sm mx-2">Ascending Sort<BsSortUp className="text-2xl"></BsSortUp></button>
+                
+            }
+            </div>
             <table className="table w-full">
                 {/* head */}
                 <thead>

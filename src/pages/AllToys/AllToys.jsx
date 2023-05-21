@@ -10,10 +10,10 @@ const AllToys = () => {
     const [toys, setToys] = useState(allToys);
 
     const handleSearch = () => {
-        const search = document.getElementById('search').value;
+        const search = document.getElementById('search').value.toLowerCase();
         console.log(search);
 
-        const toys = allToys.filter(toy => search.toLower() === toy.name.toLower())
+        const toys = allToys.filter(toy => search === toy.name.toLowerCase())
 
         console.log(toys,"search result");
         if(toys.length===0){

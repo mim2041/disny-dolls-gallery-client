@@ -4,12 +4,14 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 import useTitle from "../Hooks/UseTitle";
 
+
 const SignUp = () => {
     useTitle("SignUp")
 
-    const { createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const [isUserIncluded, setIsUserIncluded] = useState(false);
     const [error, setError] = useState('');
+
 
 
     const handleSignUp = event => {
@@ -21,8 +23,8 @@ const SignUp = () => {
         const photo = form.photo.value;
         console.log(name, email, password, photo);
 
-        if(email === '' || password === ''){
-            setError('Cannot submit empty email and password fields')
+        if(!/(?=.*[A-Z])/.test(password)){
+            setError('Please add at least one uppercase latter')
             return;
         }
 
@@ -42,6 +44,8 @@ const SignUp = () => {
                 console.log(error)
             })
     }
+
+    
 
     const handleToaster = () => {
         setIsUserIncluded(true);
@@ -63,25 +67,25 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" placeholder="Provide Your Name" name="name" className="input input-bordered" />
+                        <input type="text" placeholder="Provide Your Name" name="name" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="Provide Your Email" name="email" className="input input-bordered" />
+                        <input type="email" placeholder="Provide Your Email" name="email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" name="password" className="input input-bordered" />
+                        <input type="password" placeholder="password" name="password" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" placeholder="Provide your photo URL" name="photo" className="input input-bordered" />
+                        <input type="text" placeholder="Provide your photo URL" name="photo" className="input input-bordered" required/>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>

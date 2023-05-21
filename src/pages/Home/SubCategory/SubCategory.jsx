@@ -26,7 +26,7 @@ const SubCategory = () => {
 
     
     return (
-        <div className='text-center bg-sky-300 px-8 lg:px-24 py-12'>
+        <div className='text-center bg-sky-200 px-8 lg:px-24 py-12'>
             <h1 className='title text-5xl text-pink-700 mb-8'>Here is Our Sub Category Section</h1>
             <Tabs>
                 <TabList className="mb-12">

@@ -15,7 +15,7 @@ const AddToys = () => {
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const rating = form.rating.value;
         const seller = form.seller.value;
         const email = form.email.value;

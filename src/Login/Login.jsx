@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
@@ -12,7 +12,11 @@ import useTitle from "../Hooks/UseTitle";
 const Login = () => {
     useTitle("Login");
 
-    const { SignIn, socialLogIn } = useContext(AuthContext);
+    const emailRef = useRef();
+    const [error, setError] = useState('');
+
+
+    const { SignIn, socialLogIn, PasswordReset } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     // console.log(location);
@@ -59,6 +63,20 @@ const Login = () => {
         })
     }
     
+    // password reset
+    const handleResetPassword = () => {
+        const email = emailRef.current.value;
+        if(!email){
+            alert('Please provide your email address to reset password')
+            return;
+        }
+        PasswordReset(email)
+        .then(() => {
+            alert('Please check your email')
+        
+        })
+        .catch(error => setError(error.message))
+    }
 
     const handleLoginToaster = () => {
         setIsUserIncluded(true);
@@ -81,15 +99,15 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                        <input type="text" placeholder="email" name="email" ref={emailRef} className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" placeholder="password" name="password" className="input input-bordered" />
+                        <input type="password" placeholder="password" name="password" className="input input-bordered" required/>
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <Link onClick={handleResetPassword}>Forget Password?</Link>
                         </label>
                         </div>
                         <div className="form-control mt-6">
@@ -97,6 +115,7 @@ const Login = () => {
                         <Toaster/>
                         </div>
                     <p>Do not have an account? <Link to="/signIn"><span>Create an Account</span></Link></p>
+                    <p className="text-error">{error}</p>
                 </form>
                 <div className="divider mx-12">OR</div>
                 <div onClick={googleSingIn} className="mx-12 mb-12">
