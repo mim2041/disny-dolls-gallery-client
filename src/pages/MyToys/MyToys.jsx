@@ -92,7 +92,7 @@ const MyToys = () => {
                     <tr>
                         <th>Image</th>
                         <th>Toy Name</th>
-                        <th>Supplier Name</th>
+                        <th>Seller Name</th>
                         <th>Sub-Category</th>
                         <th>Price</th>
                         <th>Available Quantity</th>

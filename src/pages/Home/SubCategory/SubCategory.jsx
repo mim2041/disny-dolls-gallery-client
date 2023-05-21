@@ -2,23 +2,16 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SubCategoryCard from './SubCategoryCard';
-
 const SubCategory = () => {
-    const [subcategories,setSubcategories]=useState([])
+   
     // const [tabIndex,setTabIndex]=useState(0);
-    const [allToys,setAllToys]=useState([]);
-
-
-    useEffect(()=>{
-        fetch('https://disney-dolls-gallery-server.vercel.app/subcategory')
-        .then(res=>res.json())
-        .then(data=>setSubcategories(data))
-    },[])
+    const [allToys,setAllToys]=useState([])
+    
 
     
 
     useEffect(()=>{
-        fetch('https://disney-dolls-gallery-server.vercel.app/toys')
+        fetch('http://localhost:5000/toys')
         .then(res=>res.json())
         .then(data=>setAllToys(data))
     },[])
@@ -33,9 +26,9 @@ const SubCategory = () => {
             <h1 className='title text-5xl text-pink-700 mb-8'>Here is Our Sub Category Section</h1>
             <Tabs>
                 <TabList className="mb-12">
-                    {
-                       subcategories?.map(sub=><Tab key={sub._id}>{sub.subcategory}</Tab>) 
-                    }
+                <Tab>Disney Dolls</Tab>
+                <Tab>Frozen Dolls</Tab>
+                <Tab>Animation Characters</Tab>
                
                 </TabList>
 
