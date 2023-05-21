@@ -12,6 +12,7 @@ const Footer = () => {
                     <img src={logo} width="15%" className='rounded-lg' alt="" />
                     <p className='title text-pink-600'>Fairy Tales Ltd.</p>
                     <p>Providing exclusive toys since 2020</p>
+                    <p>Jahangirnagar University, Savar, Dhaka</p>
                 </div> 
                 <div>
                     <span className="footer-title">Services</span> 
