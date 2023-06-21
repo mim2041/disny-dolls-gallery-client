@@ -26,7 +26,7 @@ const AddToys = () => {
         const newToy = {name, photo, price, rating, seller, email, quantity, subcategory, description};
         console.log(newToy);
 
-        fetch('http://localhost:5000/toys',{
+        fetch('https://disney-dolls-gallery-server.vercel.app/toys',{
             method: 'POST',
             headers: {
                 "content-type": "application/json"
